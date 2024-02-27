@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: mongo-deployment
   labels:
-    app: mongo
+    app: mongo-pk
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongo
+      app: mongo-pk
   template:
     metadata:
       labels:
-        app: mongo
+        app: mongo-pk
     spec:
       containers:
       - name: mongodb
-        image: mongo:5.0
+        image: mongo:7.0
         ports:
         - containerPort: 27017
         env:
@@ -37,7 +37,7 @@ metadata:
   name: mongo-service
 spec:
   selector:
-    app: mongo
+    app: mongo-pk
   ports:
     - protocol: TCP
       port: 27017

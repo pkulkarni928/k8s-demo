@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: webapp-deployment
   labels:
-    app: webapp
+    app: webapp-pk
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webapp
+      app: webapp-pk
   template:
     metadata:
       labels:
-        app: webapp
+        app: webapp-pk
     spec:
       containers:
       - name: webapp
@@ -43,7 +43,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: webapp
+    app: webapp-pk
   ports:
     - protocol: TCP
       port: 3000
